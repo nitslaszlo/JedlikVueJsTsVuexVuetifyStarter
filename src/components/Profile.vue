@@ -1,33 +1,35 @@
 <template>
-    <div class="container">
-        <div v-if="profile.user">
-            <p>
-                Full name: {{ fullName }}
-            </p>
-            <p>
-                Email: {{ email }}
-            </p>
-        </div>
-        <div v-if="profile.error">
-            Oops an error occured
-        </div>
-
-        <v-data-table
-                :headers="datatable.headers"
-                :items="datatable.items"
-                hide-actions
-                class="elevation-1">
-
-            <template slot="items" slot-scope="props">
-                <td>{{ props.item.name }}</td>
-                <td class="text-xs-right">{{ props.item.calories }}</td>
-                <td class="text-xs-right">{{ props.item.fat }}</td>
-                <td class="text-xs-right">{{ props.item.carbs }}</td>
-                <td class="text-xs-right">{{ props.item.protein }}</td>
-                <td class="text-xs-right">{{ props.item.iron }}</td>
-            </template>
-        </v-data-table>
+  <div class="container">
+    <div v-if="profile.user">
+      <p>
+        Full name: {{ fullName }}
+      </p>
+      <p>
+        Email: {{ email }}
+      </p>
     </div>
+    <div v-if="profile.error">
+      Oops an error occured
+    </div>
+
+    <v-data-table
+      :headers="datatable.headers"
+      :items="datatable.items"
+      hide-actions
+      class="elevation-1">
+
+      <template 
+        slot="items" 
+        slot-scope="props">
+        <td>{{ props.item.name }}</td>
+        <td class="text-xs-right">{{ props.item.calories }}</td>
+        <td class="text-xs-right">{{ props.item.fat }}</td>
+        <td class="text-xs-right">{{ props.item.carbs }}</td>
+        <td class="text-xs-right">{{ props.item.protein }}</td>
+        <td class="text-xs-right">{{ props.item.iron }}</td>
+      </template>
+    </v-data-table>
+  </div>
 </template>
 
 <script lang="ts">
@@ -160,7 +162,7 @@ export default class Profile extends Vue {
   mounted() {
     // fetching data as soon as the component's been mounted
     this.fetchData();
-    console.log(this.$http.get("http://jsonplaceholder.typicode.com/posts"));
+    // console.log(this.$http.get("http://jsonplaceholder.typicode.com/posts"));
   }
 
   // computed variable based on user's email

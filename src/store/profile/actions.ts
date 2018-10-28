@@ -13,7 +13,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
         commit("profileLoaded", payload);
       },
       error => {
-        console.log(error);
+        // console.log(error);
         commit("profileError");
       }
     );
